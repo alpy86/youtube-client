@@ -42,13 +42,13 @@ interface Thumbnail {
 }
 
 
-interface SizeThumbnail {
+export interface SizeThumbnail {
   url: string;
   width: number;
   height: number;
 }
 
-interface StatisticCounter {
+export interface StatisticCounter {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;
