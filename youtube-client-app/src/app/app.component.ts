@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title: string = 'youtube-client-app';
+  viewSortMenu: boolean = false;
+  getSortMenu(toggle: boolean) {
+    if (this.viewSortMenu !== toggle) {
+      console.log(this.viewSortMenu, toggle);
+      this.viewSortMenu = true;
+    }
+    else {
+      this.viewSortMenu = false;
+    }
+  }
 }

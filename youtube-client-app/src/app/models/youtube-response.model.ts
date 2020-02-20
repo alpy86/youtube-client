@@ -1,4 +1,4 @@
-interface YoutubeResponse {
+export interface YoutubeResponse {
   kind: string;
   etag: string;
   pageInfo: {
@@ -8,7 +8,7 @@ interface YoutubeResponse {
   items: Array<SearchItem>;
 }
 
-interface SearchItem {
+export interface SearchItem {
   kind: string;
   etag: string;
   id: string;
@@ -16,7 +16,7 @@ interface SearchItem {
   statistics: StatisticCounter;
 }
 
-interface Snippet {
+export interface Snippet {
   publishedAt: string;
   channelId: string;
   title: string;
@@ -26,6 +26,7 @@ interface Snippet {
   tags: Array<string>;
   categoryId: string;
   liveBroadcastContent: string;
+  defaultLanguage?: string;
   localized: {
     title: string;
     description: string;

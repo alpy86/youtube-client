@@ -1,4 +1,5 @@
-<app-header></app-header>
+<app-header (onToggleSortMenu)="getSortMenu($event)"></app-header>
+<app-sort *ngIf="viewSortMenu"></app-sort>
 <main>
   <app-list-cards></app-list-cards>
 </main>
