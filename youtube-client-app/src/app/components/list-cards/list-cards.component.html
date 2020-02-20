@@ -1,2 +1,1 @@
-<app-card width="325" height="255"></app-card>
-<p>list-cards works!</p>
+<app-card *ngFor="let cardItem of searchedList" [cardData] = "cardItem"></app-card>

@@ -7,14 +7,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() onToggleSortMenu: EventEmitter<boolean> = new EventEmitter();
-  toggleSortMenu(): void {
-    this.onToggleSortMenu.emit(true);
-  }
+  @Output() public onToggleSortMenu: EventEmitter<boolean> = new EventEmitter();
+  @Output() public onClickSearchCards: EventEmitter<string> = new EventEmitter();
+
+  public inputSearch: string = '';
 
   constructor() { }
 
   public ngOnInit(): void {
   }
 
+  public toggleSortMenu(): void {
+    this.onToggleSortMenu.emit(true);
+  }
+
+  public searchCards(): void {
+    this.onClickSearchCards.emit(this.inputSearch);
+  }
 }

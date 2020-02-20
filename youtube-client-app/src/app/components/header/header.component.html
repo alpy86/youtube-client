@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="box-search">
     <img class="img-logo" src="./../../../assets/logo.svg" width="50" alt="logo">
-    <input type="text" class="input-search">
-    <div class="btn-search">search</div>
+    <input type="text" class="input-search" [(ngModel)]="inputSearch">
+    <div class="btn-search" (click)="searchCards()">search</div>
     <div class="btn-sort" (click)="toggleSortMenu()">
       <img src="./../../../assets/sort.svg" width="20" alt="sort">
     </div>

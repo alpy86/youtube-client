@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { youtubeResponse } from 'src/assets/mock-response';
-import { YoutubeResponse } from 'src/app/models/youtube-response.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchItem } from 'src/app/models/youtube-response.model';
+import { Card } from 'src/app/models/card.model';
 
 @Component({
   selector: 'app-list-cards',
@@ -8,10 +8,13 @@ import { YoutubeResponse } from 'src/app/models/youtube-response.model';
   styleUrls: ['./list-cards.component.scss']
 })
 export class ListCardsComponent implements OnInit {
-  public mockResponse: YoutubeResponse = youtubeResponse;
-  constructor() { }
+  @Input() public searchedList: Array<SearchItem>;
+
+  public cardItem: Card;
+
+  constructor() {
+  }
 
   public ngOnInit(): void {
   }
-
 }

@@ -42,7 +42,6 @@ interface Thumbnail {
   maxres: SizeThumbnail;
 }
 
-
 export interface SizeThumbnail {
   url: string;
   width: number;
@@ -56,4 +55,3 @@ export interface StatisticCounter {
   favoriteCount: string;
   commentCount: string;
 }
-

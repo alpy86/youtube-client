@@ -1,16 +1,18 @@
 @import "./../../../variables";
 
-:host {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 260px;
   height: 325px;
+  margin: 20px;
   padding: 10px;
   font-family: $font;
   font-size: $font-size;
-  border-bottom: 5px solid yellow;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
   border-radius: 10px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, .1);
   background-color: lighten($header-color, 10%);
@@ -22,14 +24,14 @@
   align-items: center;
 
   .img-stat {
-    margin: 5px;
+    margin: 0 5px 0 10px;
   }
 
   .img-comments {
     position: relative;
     width: 15px;
     height: 15px;
-    margin-left: 5px;
+    margin: 0 5px 0 10px;
 
     .img-elem {
       width: 11px;
@@ -51,12 +53,13 @@
   }
 }
 
-.title-card {
+.video-title {
   align-self: flex-end;
   margin: 0 20px;
   color: darken($header-color, 50%);
   font-size: 20px;
   font-weight: bold;
+  overflow: hidden;
 }
 
 .btn-more-info {

@@ -1,5 +1,5 @@
 <p>Sorting by:</p>
-<p class="btn-sort">date</p>
-<p class="btn-sort">count of views</p>
+<p class="btn-sort" (click)="sortByDate()">date</p>
+<p class="btn-sort" (click)="sortByViews()">count of views</p>
 <p class="text-sort-word">by word or sentence</p>
-<input class="input-sort" type="text">
+<input class="input-sort" type="text" [(ngModel)]="inputSort" (ngModelChange)="sortByWord()">
