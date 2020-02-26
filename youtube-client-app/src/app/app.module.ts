@@ -1,32 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
+import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { YoutubeModule } from './youtube/youtube.module';
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SortComponent } from './components/sort/sort.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { ListCardsComponent } from './components/list-cards/list-cards.component';
-import { CardComponent } from './components/card/card.component';
-import { ShareModule } from './share/share.module';
+
+import { SortService } from './core/services/sort.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    SortComponent,
-    AuthComponent,
-    ListCardsComponent,
-    CardComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ShareModule
+    AuthModule,
+    CoreModule,
+    SharedModule,
+    YoutubeModule
   ],
-  providers: [],
+  providers: [ SortService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

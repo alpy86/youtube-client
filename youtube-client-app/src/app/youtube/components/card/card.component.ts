@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card } from 'src/app/models/card.model';
+import { Card } from '../../models/card.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-card',
@@ -9,9 +11,15 @@ import { Card } from 'src/app/models/card.model';
 export class CardComponent implements OnInit {
   @Input() public cardData: Card;
 
-  constructor() { }
+
+  constructor(public router: Router) { }
 
   public ngOnInit(): void {
+
+  }
+
+  public goToDetailInfo(): void {
+    this.router.navigate(['main', this.cardData.snippet.channelId]);
   }
 
 }

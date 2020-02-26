@@ -1,4 +1,4 @@
-import { YoutubeResponse } from 'src/app/models/youtube-response.model';
+import { YoutubeResponse } from './models/youtube-response.model';
 
 export const youtubeResponse: YoutubeResponse = {
   /* tslint:disable */

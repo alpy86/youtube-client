@@ -1,9 +1,8 @@
-<app-header (onClickSearchCards)="getSearchCards($event)" (onToggleSortMenu)="getSortMenu($event)"></app-header>
-<app-sort *ngIf="viewSortMenu" (onClickSortByDate)="getSortCardsByDate()"
-  (onClickSortByViews)="getSortCardsByViews()" (onInputSort)="getSortCardsByWord($event)"></app-sort>
+<app-header></app-header>
+<!-- <app-header (onClickSearchCards)="getSearchCards($event)"></app-header> -->
 
-<main>
-  <app-list-cards [searchedList]="responseDetails"></app-list-cards>
-</main>
+<!-- <main>
+  <app-list-cards [searchedList]="getResponseDetails()"></app-list-cards>
+</main> -->
 
 <router-outlet></router-outlet>

@@ -16,4 +16,4 @@ import { SortByDateDirective } from './directive/sort-by-date.directive';
     SortByDateDirective
   ]
 })
-export class ShareModule { }
+export class SharedModule { }
