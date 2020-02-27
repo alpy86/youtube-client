@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { SearchItem } from '../../models/youtube-response.model';
 import { Card } from '../../models/card.model';
 import { ActivatedRoute } from '@angular/router';

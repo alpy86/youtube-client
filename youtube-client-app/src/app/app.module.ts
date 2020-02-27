@@ -7,10 +7,10 @@ import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { YoutubeModule } from './youtube/youtube.module';
-
 import { AppComponent } from './app.component';
 
 import { SortService } from './core/services/sort.service';
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { SortService } from './core/services/sort.service';
     YoutubeModule,
     AppRoutingModule,
   ],
-  providers: [ SortService ],
+  providers: [AuthGuard, SortService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

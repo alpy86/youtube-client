@@ -43,7 +43,7 @@ export class SortService {
     if (!value) {
       this.responseDetails = this.response.items;
     } else {
-      this.responseDetails = value;
+      this.responseDetails = [].concat(value);
     }
   }
 }

@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ListCardsComponent } from './components/list-cards/list-cards.component';
 import { DetailInfoComponent } from './pages/detail-info/detail-info.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'main/:search',
     component: ListCardsComponent,
-
+    canActivate: [AuthGuard]
   },
   {
     path: 'detail/:id',
