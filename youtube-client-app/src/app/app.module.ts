@@ -12,19 +12,18 @@ import { AppComponent } from './app.component';
 
 import { SortService } from './core/services/sort.service';
 
-
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     AuthModule,
     CoreModule,
     SharedModule,
-    YoutubeModule
+    YoutubeModule,
+    AppRoutingModule,
   ],
   providers: [ SortService ],
   bootstrap: [AppComponent]

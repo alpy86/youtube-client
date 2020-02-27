@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchItem } from 'src/app/youtube/models/youtube-response.model';
 
-
 @Pipe({
   name: 'filter'
 })

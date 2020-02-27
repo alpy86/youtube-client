@@ -5,9 +5,7 @@ import { CardComponent } from './components/card/card.component';
 import { ListCardsComponent } from './components/list-cards/list-cards.component';
 import { DetailInfoComponent } from './pages/detail-info/detail-info.component';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { YouTubeRoutingModule } from './youtube-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     SharedModule,
     FormsModule,
+    YouTubeRoutingModule
   ],
-  exports: [ListCardsComponent]
+  exports: [ListCardsComponent, DetailInfoComponent]
 })
 export class YoutubeModule { }

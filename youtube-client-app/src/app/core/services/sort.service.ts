@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
 import { YoutubeResponse, SearchItem } from 'src/app/youtube/models/youtube-response.model';
 import { youtubeResponse } from 'src/app/youtube/mock-response';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class SortService {
   private response: YoutubeResponse = youtubeResponse;
   public title: string = 'youtube-client-app';
   public responseDetails: Array<SearchItem> = [];
+  public currentValue: string;
 
+  constructor (public router: Router) { }
 
-  constructor() {
+  public getSearchCards(): SearchItem[] {
+    return this.response.items;
   }
 
+  public goToSearchCards(value: string): void {
+    if (value.length) {
+      this.router.navigate(['main', value]);
+    }
+    this.currentValue = value;
+  }
 
-
-  public getSearchCards(value: string): void {
-    this.responseDetails = this.response.items;
+  public goToBackListCards(): void {
+    if (this.currentValue) {
+      this.router.navigate(['main', this.currentValue]);
+    }
   }
 
   public getSortCardsByDate(): void {
@@ -28,15 +39,11 @@ export class SortService {
       Number(b.statistics.viewCount) - Number(a.statistics.viewCount));
   }
 
-  public getSortCardsByWord(value: string): void {
-    // if (!value) {
-    //   this.responseDetails = this.response.items;
-    // } else {
-    //   this.responseDetails = this.filterPipe.transform(this.response.items, value);
-    // }
-  }
-
-  public getResponseDetails(): SearchItem[] {
-    return this.responseDetails;
+  public getSortCardsByWord(value: SearchItem[]): void {
+    if (!value) {
+      this.responseDetails = this.response.items;
+    } else {
+      this.responseDetails = value;
+    }
   }
 }

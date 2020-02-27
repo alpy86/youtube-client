@@ -62,16 +62,36 @@
 
 .box-login {
   position: absolute;
-  left: 90%;
+  left: 87%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 
-  &:hover {
-    cursor: pointer;
+  .route-login {
+    text-decoration: none;
   }
 
-  .img-login {
-    margin-left: 5px;
+  .box-btn-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 0 10px;
+    min-height: 40px;
+    color: white;
+    background-color: darken($header-color, 20%);
+    border: 2px solid white;
+    border-radius: 15px;
+
+    &:hover {
+      background-color: darken($header-color, 30%);
+      cursor: pointer;
+    }
+
+    .img-login {
+      margin-left: 5px;
+    }
   }
+
+
 }

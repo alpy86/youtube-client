@@ -1,0 +1,108 @@
+@import "./../../../../variables";
+
+:host {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.detail-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: $font;
+  font-size: $font-size;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
+  background-color: lighten($header-color, 10%);
+}
+
+.btn-back {
+  align-self: flex-start;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: $btn-color;
+  border: 1px solid $btn-color;
+
+  &:hover {
+    background-color: lighten($btn-color, 20%);
+    cursor: pointer;
+  }
+}
+
+.box-info {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.box-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  max-height: 150px;
+
+  .video-title {
+    font-size: 25px;
+    font-weight: bold;
+    overflow: hidden;
+  }
+}
+
+.header-description {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text-description {
+  max-height: 280px;
+  overflow: hidden;
+}
+
+.box-statistic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .img-stat {
+    margin: 0 5px 0 10px;
+  }
+
+  .img-comments {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px 0 10px;
+
+    .img-elem {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: .5px solid lighten($header-color, 10%);
+      background-color: black;
+    }
+
+    .elem-pos-top {
+      position: absolute;
+      left: 3px;
+    }
+
+    .elem-pos-bottom {
+      position: absolute;
+      top: 3px;
+    }
+  }
+}
+
+

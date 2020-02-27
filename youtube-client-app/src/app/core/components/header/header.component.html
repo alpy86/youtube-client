@@ -1,16 +1,24 @@
 <div class="wrapper">
   <div class="box-search">
-    <img class="img-logo" src="./../../../../assets/logo.svg" width="50" alt="logo">
+    <img class="img-logo" src="/assets/logo.svg" width="50" alt="logo">
     <input type="text" class="input-search" [(ngModel)]="inputSearch">
     <div class="btn-search" (click)="goToSearchCards()">search</div>
     <div class="btn-sort" (click)="toggleSortMenu()">
-      <img src="./../../../../assets/sort.svg" width="20" alt="sort">
+      <img src="/assets/sort.svg" width="20" alt="sort">
     </div>
   </div>
   <div class="box-login">
-    <p>Login</p>
-    <img class="img-login" src="./../../../../assets/login.svg" width="20" alt="login">
+    <a routerLink="/auth" class="route-login">
+      <div class="box-btn-login">
+        <p class="text-login">Login</p>
+        <img class="img-login" src="/assets/login.svg" width="30" alt="login">
+      </div>
+    </a>
+    <a routerLink="" class="route-login" (click)="clearLogin()">
+      <div class="box-btn-login">
+        <p class="text-login">Logout</p>
+      </div>
+    </a>
   </div>
 </div>
-<app-sort *ngIf="viewSortMenu" (onClickSortByDate)="getSortCardsByDate()"
-  (onClickSortByViews)="getSortCardsByViews()" (onInputSort)="getSortCardsByWord($event)"></app-sort>
+<app-sort *ngIf="viewSortMenu" (onInputSort)="getSortCardsByWord($event)"></app-sort>

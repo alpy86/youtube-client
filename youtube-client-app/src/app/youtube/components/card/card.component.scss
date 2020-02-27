@@ -71,10 +71,10 @@
   border: 1px solid $btn-color;
   border-radius: 5px;
   background-color: $btn-color;
-  cursor: pointer;
 
   &:hover {
     background-color: lighten($btn-color, 10%);
+    cursor: pointer;
   }
 }
 

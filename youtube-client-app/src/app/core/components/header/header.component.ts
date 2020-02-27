@@ -1,10 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { YoutubeResponse, SearchItem } from 'src/app/youtube/models/youtube-response.model';
-import { youtubeResponse } from 'src/app/youtube/mock-response';
-import { FilterPipe } from 'src/app/shared/pipe/filter.pipe';
+import { Component, OnInit } from '@angular/core';
+// import { FilterPipe } from 'src/app/shared/pipe/filter.pipe';
 import { SortService } from '../../services/sort.service';
 import { Router } from '@angular/router';
-
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { SearchItem } from 'src/app/youtube/models/youtube-response.model';
 
 @Component({
   selector: 'app-header',
@@ -12,43 +11,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  // @Output() public onClickSearchCards: EventEmitter<string> = new EventEmitter();
 
   public viewSortMenu: boolean = false;
   public viewSearchCards: boolean = false;
   public inputSearch: string = '';
 
-  constructor (private sortService: SortService, public router: Router) {
+  constructor (
+    private sortService: SortService,
+    private authService: AuthService,
+    // private filterPipe: FilterPipe,
+    public router: Router) { }
 
-  };
+  public ngOnInit(): void {
+  }
 
   public toggleSortMenu(): void {
     this.viewSortMenu = !this.viewSortMenu;
   }
 
-  // public searchCards(): void {
-  //   this.onClickSearchCards.emit(this.inputSearch);
-  // }
-
-  public getSortCardsByDate(): void {
-    this.sortService.getSortCardsByDate();
+  public goToSearchCards(): void {
+    this.sortService.goToSearchCards(this.inputSearch);
   }
 
-  public getSortCardsByViews(): void {
-    this.sortService.getSortCardsByViews();
+  public clearLogin(): void {
+    this.authService.clearLogin();
   }
 
   public getSortCardsByWord(value: string): void {
-    this.sortService.getSortCardsByWord(value);
+    const cards: SearchItem[] = this.sortService.getSearchCards();
+    const filterCards: SearchItem[] = cards.filter((el) => el.snippet.title.indexOf(value) > 0);
+    this.sortService.getSortCardsByWord(filterCards);
   }
-
-  public ngOnInit(): void {
-  }
-
-  public goToSearchCards(): void {
-    if (this.inputSearch.length) {
-      this.router.navigate(['main'], { queryParams: { search: this.inputSearch } });
-    }
-  }
-
 }

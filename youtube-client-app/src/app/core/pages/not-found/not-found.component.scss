@@ -12,11 +12,14 @@
   justify-content: center;
   align-items: center;
   color: $header-color;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 .img-error {
   display: inline-block;
   margin: 20px;
+}
+
+.text-message {
+  font-size: 30px;
+  font-weight: bold;
 }

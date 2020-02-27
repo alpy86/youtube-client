@@ -7,3 +7,8 @@ export interface Card {
   snippet: Snippet;
   statistics: StatisticCounter;
 }
+
+export interface CardDetail {
+  snippet: Snippet;
+  statistics: StatisticCounter;
+}

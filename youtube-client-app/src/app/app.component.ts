@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SortService } from './core/services/sort.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +7,6 @@ import { SortService } from './core/services/sort.service';
 })
 export class AppComponent {
 
-  constructor (private sortService: SortService) {
-
-  };
-
-  // public getSearchCards(value: string): void {
-  //   this.sortService.getSearchCards(value);
-  // }
-
-  // public getResponseDetails(): void {
-  //   this.sortService.getResponseDetails();
-  // }
+  constructor () {
+  }
 }
