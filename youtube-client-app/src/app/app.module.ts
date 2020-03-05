@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
@@ -23,6 +24,7 @@ import { AuthGuard } from './core/guards/auth.guard';
     CoreModule,
     SharedModule,
     YoutubeModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [AuthGuard, SortService],

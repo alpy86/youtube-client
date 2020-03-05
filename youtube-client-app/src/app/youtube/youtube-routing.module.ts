@@ -7,7 +7,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'main/:search',
+    path: 'main',
     component: ListCardsComponent,
     canActivate: [AuthGuard]
   },

@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
+import { Subject } from 'rxjs/internal/Subject';
+
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 export class AuthComponent implements OnInit {
   public login: string;
   public password: string;
+  // public observe: Subject<T>;
 
   constructor (private router: Router, private authService: AuthService) { }
 
@@ -21,6 +24,8 @@ export class AuthComponent implements OnInit {
 
   public onSubmit(form: NgForm): void {
     this.authService.setToken(form.value.login);
-    this.router.navigate(['']);
+    this.router.navigate(['main']);
   }
+
+
 }

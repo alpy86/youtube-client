@@ -11,7 +11,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'main/:search',
+    path: 'main',
     loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule),
     canLoad: [AuthGuard]
   },

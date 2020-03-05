@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { SortService } from '../../services/sort.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { SearchItem } from 'src/app/youtube/models/youtube-response.model';
+import { SearchItem, YoutubeResponse } from 'src/app/youtube/models/youtube-response.model';
+import { HttpService } from '../../services/http.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -15,10 +17,13 @@ export class HeaderComponent implements OnInit {
   public viewSortMenu: boolean = false;
   public viewSearchCards: boolean = false;
   public inputSearch: string = '';
+  public isButtonLogout: boolean = false;
+
 
   constructor (
     private sortService: SortService,
     private authService: AuthService,
+    private httpService: HttpService,
     // private filterPipe: FilterPipe,
     public router: Router) { }
 
@@ -29,9 +34,14 @@ export class HeaderComponent implements OnInit {
     this.viewSortMenu = !this.viewSortMenu;
   }
 
-  public goToSearchCards(): void {
-    this.sortService.goToSearchCards(this.inputSearch);
+  public initSearch(): void {
+    if (this.inputSearch.length > 3) {
+      this.httpService.setSearchSubject(this.inputSearch);
+      this.router.navigate(['main']);
+    }
   }
+
+  // this.authService.isLogin.subscribe(data => this.isButtonLogout = data);
 
   public clearLogin(): void {
     this.authService.clearLogin();

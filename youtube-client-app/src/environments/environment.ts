@@ -5,7 +5,9 @@ import { Environment } from './environment.model';
 // The list of file replacements can be found in `angular.json`.
 
 export const environment: Environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://www.googleapis.com/youtube/v3',
+  key: 'AIzaSyCLxHlKU1dysOO6UGTuQt-pVn7kLuadUk8'
 };
 
 /*
