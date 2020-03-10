@@ -8,7 +8,7 @@ import { SortService } from '../../services/sort.service';
 })
 export class SortComponent implements OnInit {
 
-  @Output() public onInputSort: EventEmitter<string> = new EventEmitter();
+  // @Output() public onInputSort: EventEmitter<string> = new EventEmitter();
 
   public inputSort: string = '';
 
@@ -25,7 +25,10 @@ export class SortComponent implements OnInit {
     this.sortService.getSortCardsByViews();
   }
 
+  // public sortByWord(): void {
+  //   this.onInputSort.emit(this.inputSort);
+  // }
   public sortByWord(): void {
-    this.onInputSort.emit(this.inputSort);
+    this.sortService.getSortCardsByWord(this.inputSort);
   }
 }

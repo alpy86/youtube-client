@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, retry } from 'rxjs/operators';
-import { YoutubeResponse } from 'src/app/youtube/models/youtube-response.model';
+import { YoutubeResponse, SearchItem } from 'src/app/youtube/models/youtube-response.model';
 import { Router } from '@angular/router';
 
 
@@ -11,27 +11,67 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
-  // public searchValue: string = 'auto';
-  private searchSubject = new Subject<any>();
+  public searchValue: string = 'auto';
+  public step: number = 0;
+  public dataId: Array<string>;
+  public data: Array<SearchItem>;
+  public valueCards$: BehaviorSubject<Array<SearchItem>> = new BehaviorSubject<Array<SearchItem>>([]);
+  public valueCards: Observable<Array<SearchItem>> = this.valueCards$.asObservable();
+  public response: YoutubeResponse;
+  // private searchSubject = new Subject<any>();
   constructor(private http: HttpClient, public router: Router) {
 
   }
 
-  setSearchSubject(value: string) {
-    this.searchSubject.next(value);
-}
 
-  // setSearchValue(value: string): void {
-  //   this.searchValue = value;
-  // }
 
-  // getSearchValue(): string {
-  //   return this.searchValue;
-  // }
+  setSearchValue(value: string): void {
+    this.searchValue = value;
+    if (!this.step) {
+      this.router.navigate(['main']);
+    }
+    this.step += 1;
+    this.getData(this.searchValue);
+  }
 
-  getSearchSubject(): Observable<any> {
-    return this.searchSubject.asObservable();
-}
+  getResponse(): YoutubeResponse {
+    return this.response;
+  }
+
+  goToBackListCards(): void {
+    this.router.navigate(['main']);
+    this.getData(this.searchValue);
+  }
+
+  getData(value: string): void {
+    let url = `type=video&part=snippet&maxResults=15&q=${value}`;
+    console.log(url);
+    this.http.get(url).subscribe((values: YoutubeResponse) => {
+      console.log(values.items);
+      this.dataId = values.items.map((el: any) => el = el.id.videoId);
+      console.log(this.dataId);
+      let urlNext = `id=${this.dataId.join(',')}&part=snippet,statistics`;
+      console.log(urlNext);
+      this.http.get(urlNext).subscribe((data: YoutubeResponse) => {
+        this.valueCards$.next(data.items);
+        this.response = data;
+      });
+    });
+  }
+
+  transferData(value: Array<SearchItem>) {
+    this.valueCards$.next(value);
+  }
+
+
+
+  //   setSearchSubject(value: string) {
+//     this.searchSubject.next(value);
+// }
+
+//   getSearchSubject(): Observable<any> {
+//     return this.searchSubject.asObservable();
+// }
 
 
   // getList(): any {

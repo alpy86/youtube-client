@@ -1,7 +1,8 @@
 <div class="wrapper">
   <div class="box-search">
     <img class="img-logo" src="/assets/logo.svg" width="50" alt="logo">
-    <input type="text" class="input-search" [(ngModel)]="inputSearch" (ngModelChange)="initSearch()">
+    <input type="text" #inputTag class="input-search" [(ngModel)]="inputSearch">
+    <!-- (ngModelChange)="initSearch()" -->
     <!-- <div class="btn-search" (click)="goToSearchCards()">search</div> -->
     <div class="btn-sort" (click)="toggleSortMenu()">
       <img src="/assets/sort.svg" width="20" alt="sort">
@@ -14,11 +15,12 @@
         <img class="img-login" src="/assets/login.svg" width="30" alt="login">
       </div>
     </a>
-    <a routerLink="" class="route-login" (click)="clearLogin()" *ngIf="isButtonLogout">
+    <a routerLink="" class="route-login" (click)="clearLogin()" *ngIf="isAuth">
       <div class="box-btn-login">
         <p class="text-login" >Logout</p>
       </div>
     </a>
   </div>
 </div>
-<app-sort *ngIf="viewSortMenu" (onInputSort)="getSortCardsByWord($event)"></app-sort>
+<app-sort *ngIf="viewSortMenu"></app-sort>
+<!-- (onInputSort)="getSortCardsByWord($event)" -->

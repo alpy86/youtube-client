@@ -6,8 +6,8 @@ import { Environment } from './environment.model';
 
 export const environment: Environment = {
   production: false,
-  baseUrl: 'https://www.googleapis.com/youtube/v3',
-  key: 'AIzaSyCLxHlKU1dysOO6UGTuQt-pVn7kLuadUk8'
+  API_URL: 'https://www.googleapis.com/youtube/v3',
+  API_TOKEN: 'AIzaSyCLxHlKU1dysOO6UGTuQt-pVn7kLuadUk8'
 };
 
 /*

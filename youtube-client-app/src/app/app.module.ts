@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import { SortService } from './core/services/sort.service';
 import { AuthGuard } from './core/guards/auth.guard';
+import { ApiInterceptor } from './core/interceptors/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import { AuthGuard } from './core/guards/auth.guard';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [AuthGuard, SortService],
+  providers: [
+    AuthGuard,
+    SortService,
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,32 +12,20 @@ import { Observable } from 'rxjs';
   selector: 'app-list-cards',
   templateUrl: './list-cards.component.html',
   styleUrls: ['./list-cards.component.scss'],
-  providers: [HttpService]
+  // providers: [HttpService]
 })
 export class ListCardsComponent implements OnInit {
   public cardItem: Card;
   public searchedList: Array<SearchItem>;
   public dataId: Array<string>;
   public data: Array<SearchItem>;
-  private searchValue: Observable<any>;
+  private searchValue: string;
 
   constructor(private httpService: HttpService, public route: ActivatedRoute, private http: HttpClient) { }
 
   public ngOnInit(): void {
     // this.searchedList = this.sortService.getSearchCards();
-    this.searchValue = this.httpService.getSearchSubject();
-    let url = `${environment.baseUrl}/search?key=${environment.key}&type=video&part=snippet&maxResults=15&q=${this.searchValue}`;
-    console.log(url);
-    this.http.get(url).subscribe((values: YoutubeResponse) => {
-      console.log(values.items);
-      this.dataId = values.items.map((el: any) => el = el.id.videoId);
-      console.log(this.dataId);
-      let urlNext = `${environment.baseUrl}/videos?key=${environment.key}&id=${this.dataId.join(',')}&part=snippet,statistics`;
-      console.log(urlNext);
-      this.http.get(urlNext).subscribe((data: YoutubeResponse) => {
-        this.searchedList = data.items;
-      });
-    });
+    this.httpService.valueCards.subscribe(data => this.searchedList = data);
   }
 
   // private getData(): void {
@@ -50,5 +38,29 @@ export class ListCardsComponent implements OnInit {
     //   this.searchedList = data.items;
     //   console.log(this.searchedList);
     //  });
+
+
+
+
+
+
+
+
+    // public ngOnInit(): void {
+    //   // this.searchedList = this.sortService.getSearchCards();
+    //   this.searchValue = this.httpService.getSearchValue();
+    //   let url = `${environment.baseUrl}/search?key=${environment.key}&type=video&part=snippet&maxResults=15&q=${this.searchValue}`;
+    //   console.log(url);
+    //   this.http.get(url).subscribe((values: YoutubeResponse) => {
+    //     console.log(values.items);
+    //     this.dataId = values.items.map((el: any) => el = el.id.videoId);
+    //     console.log(this.dataId);
+    //     let urlNext = `${environment.baseUrl}/videos?key=${environment.key}&id=${this.dataId.join(',')}&part=snippet,statistics`;
+    //     console.log(urlNext);
+    //     this.http.get(urlNext).subscribe((data: YoutubeResponse) => {
+    //       this.searchedList = data.items;
+    //     });
+    //   });
+    // }
 
 }

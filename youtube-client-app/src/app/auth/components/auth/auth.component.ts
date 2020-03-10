@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
 
   public onSubmit(form: NgForm): void {
     this.authService.setToken(form.value.login);
-    this.router.navigate(['main']);
+    this.router.navigate(['']);
   }
 
 
