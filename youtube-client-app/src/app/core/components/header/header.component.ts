@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private httpService: HttpService,
     public router: Router
-    ) { }
+  ) {
+  }
 
   public ngOnInit(): void {
     this.authService.isLocalStorageValue();
@@ -49,11 +50,11 @@ export class HeaderComponent implements OnInit {
     this.viewSortMenu = !this.viewSortMenu;
   }
 
-  public initSearch(): void {
-    if (this.inputSearch.length > 2) {
-      this.httpService.setSearchValue(this.inputSearch);
-    }
-  }
+  // public initSearch(): void {
+  //   if (this.inputSearch.length > 2) {
+  //     this.httpService.setSearchValue(this.inputSearch);
+  //   }
+  // }
 
   public clearLogin(): void {
     this.authService.clearLogin();

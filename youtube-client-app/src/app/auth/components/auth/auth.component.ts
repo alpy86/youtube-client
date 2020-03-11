@@ -15,17 +15,13 @@ import { Subject } from 'rxjs/internal/Subject';
 export class AuthComponent implements OnInit {
   public login: string;
   public password: string;
-  // public observe: Subject<T>;
 
-  constructor (private router: Router, private authService: AuthService) { }
+  constructor (private authService: AuthService) { }
 
   public ngOnInit(): void {
   }
 
   public onSubmit(form: NgForm): void {
     this.authService.setToken(form.value.login);
-    this.router.navigate(['']);
   }
-
-
 }

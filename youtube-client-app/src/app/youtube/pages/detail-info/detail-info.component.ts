@@ -19,7 +19,8 @@ export class DetailInfoComponent implements OnInit {
   constructor(
     public router: Router,
     private activateRoute: ActivatedRoute,
-    private httpService: HttpService) {
+    private httpService: HttpService
+    ) {
     this.id = activateRoute.snapshot.params.id;
   }
 

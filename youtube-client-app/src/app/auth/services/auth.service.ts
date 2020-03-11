@@ -15,8 +15,8 @@ export class AuthService {
   public setToken(name: string): void {
     this.token = `${name}${Math.floor(Math.random() * Date.now())}`;
     localStorage.setItem('loginToken', this.token);
-    console.log(this.token);
     this.setStateLogin(true);
+    this.router.navigate(['main']);
   }
 
   public isLocalStorageValue(): void {
