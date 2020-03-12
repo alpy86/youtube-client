@@ -7,9 +7,8 @@ import { HttpService } from './http.service';
 
 export class SortService {
   private response: YoutubeResponse;
-  public title: string = 'youtube-client-app';
-  public responseDetails: Array<SearchItem> = [];
-  // public currentValue: string;
+  // public title: string = 'youtube-client-app';
+  private responseDetails: Array<SearchItem> = [];
 
   constructor (private httpService: HttpService) { }
 
@@ -37,7 +36,8 @@ export class SortService {
     if (!value) {
       this.responseDetails = this.response.items;
     } else {
-      this.responseDetails = this.response.items.filter((el) => el.snippet.title.indexOf(value) > 0);
+      this.responseDetails = this.response.items.filter(
+        (el) => el.snippet.title.toLowerCase().indexOf(value.toLowerCase()) > 0);
     }
 
     this.httpService.transferData(this.responseDetails);

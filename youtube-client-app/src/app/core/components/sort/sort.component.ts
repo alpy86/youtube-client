@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SortService } from '../../services/sort.service';
 
 @Component({
@@ -6,12 +6,11 @@ import { SortService } from '../../services/sort.service';
   templateUrl: './sort.component.html',
   styleUrls: ['./sort.component.scss']
 })
+
 export class SortComponent implements OnInit {
 
-  // @Output() public onInputSort: EventEmitter<string> = new EventEmitter();
-
   public inputSort: string = '';
-
+  // @Output() public onInputSort: EventEmitter<string> = new EventEmitter();
   constructor(private sortService: SortService) { }
 
   public ngOnInit(): void {
@@ -25,9 +24,6 @@ export class SortComponent implements OnInit {
     this.sortService.getSortCardsByViews();
   }
 
-  // public sortByWord(): void {
-  //   this.onInputSort.emit(this.inputSort);
-  // }
   public sortByWord(): void {
     this.sortService.getSortCardsByWord(this.inputSort);
   }

@@ -14,21 +14,20 @@ export class HttpService {
   public data: Array<SearchItem>;
   public dataId: Array<string>;
   public response: YoutubeResponse;
-  public searchValue: string;
-  public step: number = 0;
+  // public searchValue: string;
   public valueCards$: BehaviorSubject<Array<SearchItem>> = new BehaviorSubject<Array<SearchItem>>([]);
   public valueCards: Observable<Array<SearchItem>> = this.valueCards$.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  setSearchValue(value: string): void {
-    this.searchValue = value;
-    if (!this.step) {
-      this.router.navigate(['main']);
-    }
-    this.step += 1;
-    this.getData(this.searchValue);
-  }
+  // setSearchValue(value: string): void {
+  //   this.searchValue = value;
+  //   if (!this.step) {
+  //     this.router.navigate(['main']);
+  //   }
+  //   this.step += 1;
+  //   this.getData(this.searchValue);
+  // }
 
   getData(value: string): void {
     let url = `type=video&part=snippet&maxResults=15&q=${value}`;
@@ -48,9 +47,9 @@ export class HttpService {
     return this.response;
   }
 
-  goToBackListCards(): void {
-    this.router.navigate(['main']);
-  }
+  // goToBackListCards(): void {
+  //   this.router.navigate(['main']);
+  // }
 
   transferData(value: Array<SearchItem>) {
     this.valueCards$.next(value);

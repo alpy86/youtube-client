@@ -1,7 +1,8 @@
 <div class="detail-card" [appSortByDate]="card['snippet']['publishedAt']">
   <div class="btn-back" (click)="goToBackListCards()">&lt;</div>
-  <img class="video-thumbnail" src="{{ card['snippet']['thumbnails']['standard']['url'] }}" width="640"
-    alt="video-thumbnail">
+  <div class="wrapper-img">
+    <img class="video-thumbnail" src="{{ thumbnails['url'] }}" alt="video-thumbnail">
+  </div>
   <div class="box-info">
     <div class="box-title">
       <p class="video-title">{{ card['snippet']['title'] }}</p>

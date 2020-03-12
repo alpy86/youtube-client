@@ -11,10 +11,11 @@ import { HttpService } from 'src/app/core/services/http.service';
   styleUrls: ['./detail-info.component.scss']
 })
 export class DetailInfoComponent implements OnInit {
-  @Input() public card: CardDetail;
+  public card: CardDetail;
   public datePublish: string;
   public cards: SearchItem[];
   public id: Object;
+  public thumbnails: Object;
 
   constructor(
     public router: Router,
@@ -26,16 +27,18 @@ export class DetailInfoComponent implements OnInit {
 
   public ngOnInit(): void {
     this.httpService.valueCards.subscribe(data => this.cards = data);
-    // let cards: SearchItem[] = this.sortService.getSearchCards();
     let filterArrCards: SearchItem[] = this.cards.filter((val) => val.snippet.channelId === this.id);
     this.card = filterArrCards[0];
+    console.log(this.card);
     this.datePublish = this.card.snippet.publishedAt;
+    this.thumbnails = this.card.snippet.thumbnails.standard || this.card.snippet.thumbnails.high;
   }
 
   // public goToBackListCards(): void {
   //   this.sortService.goToBackListCards();
   // }
   public goToBackListCards(): void {
-    this.httpService.goToBackListCards();
+    // this.httpService.goToBackListCards();
+    this.router.navigate(['main']);
   }
 }

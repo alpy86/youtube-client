@@ -1,16 +1,22 @@
-@import "./../../../../variables";
+@import "src/variables";
 
 .wrapper {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 80px;
-  padding: 0 10%;
+  flex-wrap: wrap;
+  min-height: 80px;
+  padding: 0 5% 0 2%;
   color: #4f4f4f;
   font-family: $font;
   font-size: $font-size;
   background-color: $header-color;
+}
+
+.text-header {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .box-search {
@@ -25,22 +31,6 @@
   .input-search {
     width: 300px;
     height: 21px;
-  }
-
-  .btn-search {
-    width: 80px;
-    height: 25px;
-    text-align: center;
-    line-height: 25px;
-    color: white;
-    border-radius: 0 10px 10px 0;
-    border: 1px solid $btn-color;
-    background-color: $btn-color;
-    cursor: pointer;
-
-    &:hover {
-      background-color: lighten($btn-color, 10%);
-    }
   }
 
   .btn-sort {
@@ -60,38 +50,24 @@
   }
 }
 
-.box-login {
-  position: absolute;
-  left: 87%;
+.btn-login {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  margin: 10px;
+  padding: 0 10px;
+  min-height: 40px;
+  color: white;
+  background-color: darken($header-color, 20%);
+  border: 2px solid white;
+  border-radius: 15px;
 
-  .route-login {
-    text-decoration: none;
+  &:hover {
+    background-color: darken($header-color, 30%);
+    cursor: pointer;
   }
 
-  .box-btn-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    padding: 0 10px;
-    min-height: 40px;
-    color: white;
-    background-color: darken($header-color, 20%);
-    border: 2px solid white;
-    border-radius: 15px;
-
-    &:hover {
-      background-color: darken($header-color, 30%);
-      cursor: pointer;
-    }
-
-    .img-login {
-      margin-left: 5px;
-    }
+  .img-login {
+    margin-left: 5px;
   }
-
-
 }

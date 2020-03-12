@@ -1,36 +1,44 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-// import { FilterPipe } from 'src/app/shared/pipe/filter.pipe';
-import { SortService } from '../../services/sort.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { SearchItem, YoutubeResponse } from 'src/app/youtube/models/youtube-response.model';
 import { HttpService } from '../../services/http.service';
-import { BehaviorSubject, fromEvent } from 'rxjs';
-import { debounceTime, map, distinctUntilChanged, filter } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  @ViewChild('inputTag', { static: false }) inputElem: any;
 
-  public viewSortMenu: boolean = false;
-  public viewSearchCards: boolean = false;
+export class HeaderComponent implements OnInit {
+  @ViewChild('inputTag', { static: false }) inputElem: ElementRef;
+
   public inputSearch: string = '';
+  public stateLogin: string = 'Login';
+  public viewSortMenu: boolean = false;
+
   public isAuth: boolean = false;
 
+  // public viewSearchCards: boolean = false;
   constructor(
     private authService: AuthService,
     private httpService: HttpService,
-    public router: Router
+    private router: Router
   ) {
   }
 
   public ngOnInit(): void {
     this.authService.isLocalStorageValue();
-    this.authService.isLogin.subscribe(data => this.isAuth = data);
+    this.authService.isLogin.subscribe(data => {
+      this.isAuth = data;
+      if (this.isAuth) {
+        this.stateLogin = 'Logout';
+      } else {
+        this.stateLogin = 'Login';
+        this.inputSearch = '';
+      }
+    });
   }
 
   public ngAfterViewInit(): void {
@@ -38,25 +46,21 @@ export class HeaderComponent implements OnInit {
       .pipe(
         debounceTime(700),
         map((event: InputEvent) => (<HTMLInputElement>event.target).value),
-        filter(val => val.length > 2),
+        filter(value => value.length > 2),
         distinctUntilChanged(),
       )
-      .subscribe(evt => {
-        this.httpService.setSearchValue(evt);
+      .subscribe(value => {
+        this.httpService.getData(value);
       });
+  }
+
+  public clearLogin(): void {
+    if (this.isAuth) {
+      this.authService.clearLogin();
+    }
   }
 
   public toggleSortMenu(): void {
     this.viewSortMenu = !this.viewSortMenu;
-  }
-
-  // public initSearch(): void {
-  //   if (this.inputSearch.length > 2) {
-  //     this.httpService.setSearchValue(this.inputSearch);
-  //   }
-  // }
-
-  public clearLogin(): void {
-    this.authService.clearLogin();
   }
 }
