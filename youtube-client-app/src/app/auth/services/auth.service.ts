@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
-  public token: string;
+  private token: string;
   public login$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public isLogin = this.login$.asObservable();
+  public isLogin: Observable<boolean> = this.login$.asObservable();
 
   constructor(private router: Router) { }
 
@@ -33,7 +34,7 @@ export class AuthService {
     this.router.navigate(['auth']);
   }
 
-  public setStateLogin(login: boolean) {
+  public setStateLogin(login: boolean): void {
     this.login$.next(login);
   }
 }

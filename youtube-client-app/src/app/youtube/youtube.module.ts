@@ -21,4 +21,5 @@ import { YouTubeRoutingModule } from './youtube-routing.module';
   ],
   exports: [ListCardsComponent, DetailInfoComponent]
 })
+
 export class YoutubeModule { }

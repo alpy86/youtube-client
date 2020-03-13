@@ -5,7 +5,6 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-
   {
     path: 'main',
     loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule),
@@ -27,4 +26,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule { }

@@ -5,10 +5,10 @@ import { Directive, Input, ElementRef, Renderer2 } from '@angular/core';
 })
 export class SortByDateDirective {
   @Input() private appSortByDate: string;
+
   private date: string;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {
-  }
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   private changeColorForBorder(): void {
     let publishDate: number = Date.parse(this.date);

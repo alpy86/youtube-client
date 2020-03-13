@@ -12,26 +12,24 @@ import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators'
 })
 
 export class HeaderComponent implements OnInit {
-  @ViewChild('inputTag', { static: false }) inputElem: ElementRef;
+  @ViewChild('inputTag', { static: false }) public inputElem: ElementRef;
 
   public inputSearch: string = '';
+  public isAuth: boolean = false;
   public stateLogin: string = 'Login';
   public viewSortMenu: boolean = false;
 
-  public isAuth: boolean = false;
-
-  // public viewSearchCards: boolean = false;
   constructor(
     private authService: AuthService,
     private httpService: HttpService,
-    private router: Router
-  ) {
-  }
+  ) { }
 
   public ngOnInit(): void {
     this.authService.isLocalStorageValue();
+
     this.authService.isLogin.subscribe(data => {
       this.isAuth = data;
+
       if (this.isAuth) {
         this.stateLogin = 'Logout';
       } else {

@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
+
 export class CardComponent implements OnInit {
   @Input() public cardData: Card;
 
-  constructor(public router: Router) { }
+  constructor(private router: Router) { }
 
   public ngOnInit(): void {
   }

@@ -8,9 +8,8 @@ import { SortService } from '../../services/sort.service';
 })
 
 export class SortComponent implements OnInit {
-
   public inputSort: string = '';
-  // @Output() public onInputSort: EventEmitter<string> = new EventEmitter();
+
   constructor(private sortService: SortService) { }
 
   public ngOnInit(): void {

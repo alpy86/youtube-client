@@ -13,7 +13,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log(request);
     if (request.url.indexOf('type=video') > -1) {
       return next.handle(

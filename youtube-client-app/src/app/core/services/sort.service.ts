@@ -7,7 +7,6 @@ import { HttpService } from './http.service';
 
 export class SortService {
   private response: YoutubeResponse;
-  // public title: string = 'youtube-client-app';
   private responseDetails: Array<SearchItem> = [];
 
   constructor (private httpService: HttpService) { }

@@ -4,8 +4,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
-import { Subject } from 'rxjs/internal/Subject';
-
 
 @Component({
   selector: 'app-auth',
