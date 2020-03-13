@@ -7,7 +7,6 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,
-    pathMatch: 'full'
   },
 ];
 
