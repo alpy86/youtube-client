@@ -6,7 +6,7 @@ import { DetailInfoComponent } from './pages/detail-info/detail-info.component';
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
     component: ListCardsComponent,
   },
   {

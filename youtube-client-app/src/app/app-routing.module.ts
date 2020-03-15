@@ -19,7 +19,9 @@ const routes: Routes = [
     redirectTo: 'main',
     pathMatch: 'full'
   },
-  { path: '**', component: NotFoundComponent },
+  { path: '**',
+    component: NotFoundComponent
+  },
 ];
 
 @NgModule({

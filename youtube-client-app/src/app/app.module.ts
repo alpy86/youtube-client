@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { SortService } from './core/services/sort.service';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     FormsModule,
     AuthModule,
     CoreModule,
