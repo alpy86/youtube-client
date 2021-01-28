@@ -1,0 +1,28 @@
+<div class="detail-card" [appSortByDate]="card['snippet']['publishedAt']">
+  <div class="btn-back" (click)="goToBackListCards()">&lt;</div>
+  <img class="video-thumbnail" src="{{ card['snippet']['thumbnails']['standard']['url'] }}" width="640"
+    alt="video-thumbnail">
+  <div class="box-info">
+    <div class="box-title">
+      <p class="video-title">{{ card['snippet']['title'] }}</p>
+      <p class="video-date">{{ datePublish | date:'fullDate' }}</p>
+    </div>
+    <div class="box-description">
+      <p class="header-description">Description</p>
+      <p class="text-description">{{ card['snippet']['description'] }}</p>
+    </div>
+    <div class="box-statistic">
+      <img class="img-stat" src="./../../../../assets/viewed.svg" alt="viewed">
+      <span class="value-stat">{{ card['statistics']['viewCount'] }}</span>
+      <img class="img-stat" src="./../../../../assets/liked.svg" alt="liked">
+      <span class="value-stat">{{ card['statistics']['likeCount'] }}</span>
+      <img class="img-stat" src="./../../../../assets/dislike.svg" alt="dislike">
+      <span class="value-stat">{{ card['statistics']['dislikeCount'] }}</span>
+      <div class="img-comments">
+        <div class="img-elem elem-pos-top"></div>
+        <div class="img-elem elem-pos-bottom"></div>
+      </div>
+      <span class="value-stat">{{ card['statistics']['commentCount'] }}</span>
+    </div>
+  </div>
+</div>

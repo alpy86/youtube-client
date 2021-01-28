@@ -1,0 +1,25 @@
+@import "./../../../../variables";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.box-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $header-color;
+}
+
+.img-error {
+  display: inline-block;
+  margin: 20px;
+}
+
+.text-message {
+  font-size: 30px;
+  font-weight: bold;
+}

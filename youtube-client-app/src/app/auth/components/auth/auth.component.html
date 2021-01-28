@@ -1,0 +1,14 @@
+<div class="box-form-login">
+  <h1>Login</h1>
+  <form #myTemplateVar="ngForm">
+    <div class="form-group">
+      <label class="label-login" for="login">Login</label>
+      <input type="text" class="form-control" id="login" name="login" [(ngModel)]="login" required>
+    </div>
+    <div class="form-group">
+      <label class="label-login" for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" minlength="6">
+    </div>
+    <button type="submit" class="btn-submit" (click)="onSubmit(myTemplateVar)" [disabled]="myTemplateVar.invalid">Login</button>
+  </form>
+</div>
