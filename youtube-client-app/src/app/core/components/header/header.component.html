@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <p class="text-header">YouTube Client</p>
+  <div class="box-search">
+    <img class="img-logo" src="/assets/logo.svg" width="50" alt="logo">
+    <input type="text" #inputTag class="input-search" [(ngModel)]="inputSearch" [disabled]="!(isAuth)">
+    <div class="btn-sort" (click)="toggleSortMenu()">
+      <img src="/assets/sort.svg" width="20" alt="sort">
+    </div>
+  </div>
+  <div class="btn-login" (click)="clearLogin()">
+    <p class="text-login">{{ stateLogin }}</p>
+    <img class="img-login" src="/assets/login.svg" width="30" alt="login">
+  </div>
+</div>
+<app-sort *ngIf="viewSortMenu"></app-sort>

@@ -1,0 +1,28 @@
+@import "src/variables";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-family: $font;
+  font-size: $font-size;
+  color: white;
+  background-color: $header-color;
+}
+
+.btn-sort {
+  margin: 0 10px;
+  color: $btn-color;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($btn-color, 20%);
+  }
+}
+
+.text-sort-word {
+  margin: 0 10px;
+  color: $btn-color;
+}

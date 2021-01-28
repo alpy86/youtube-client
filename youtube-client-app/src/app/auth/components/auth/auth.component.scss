@@ -1,0 +1,73 @@
+@import "src/variables";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+  padding: 2%;
+  background-color: $header-color;
+  border-radius: 2%;
+}
+
+h1 {
+  margin: 20px 0;
+  color: darken($header-color, 50%);
+  font-size: 30px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 10px;
+
+  .alert-danger {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    border: 2px solid red;
+    background-color: $header-color;
+  }
+}
+
+.label-login {
+  display: block;
+  margin-bottom: 2px;
+  color: darken($header-color, 50%);
+  font-size: 14px;
+}
+
+.form-control {
+  display: block;
+  font-size: 20px;
+}
+
+.form-control.ng-dirty.ng-valid {
+  border:solid green 2px;
+}
+
+.form-control.ng-dirty.ng-invalid {
+  border:solid red 2px;
+}
+
+.btn-submit {
+  display: block;
+  margin-left: auto;
+  padding: 10px 20px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: $btn-color;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

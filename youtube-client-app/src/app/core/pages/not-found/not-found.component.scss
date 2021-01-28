@@ -1,0 +1,45 @@
+@import "src/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.box-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $header-color;
+}
+
+.img-error {
+  display: inline-block;
+  margin: 20px;
+}
+
+.text-message {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.btn-go-back {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  font-family: $font;
+  font-size: 20px;
+  font-weight: bold;
+  color: $header-color;
+  background-color: $btn-color;
+  border: 2px solid $header-color;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($btn-color, 10%);
+    border-color: darken($header-color, 30%);
+  }
+}

@@ -1,0 +1,118 @@
+@import "src/variables";
+
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.detail-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+  padding: 10px;
+  font-family: $font;
+  font-size: $font-size;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
+  background-color: lighten($header-color, 10%);
+}
+
+.wrapper-img {
+  max-width: 600px;
+
+  .video-thumbnail {
+    width: 100%;
+  }
+}
+
+.btn-back {
+  align-self: flex-start;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: $btn-color;
+  border: 1px solid $btn-color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($btn-color, 20%);
+  }
+}
+
+.box-info {
+  align-self: stretch;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.box-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+  max-height: 150px;
+
+  .video-title {
+    margin-right: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    overflow: hidden;
+  }
+}
+
+.header-description {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text-description {
+  max-height: 280px;
+  overflow: hidden;
+}
+
+.box-statistic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  .img-stat {
+    margin: 0 5px 0 10px;
+  }
+
+  .img-comments {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px 0 10px;
+
+    .img-elem {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: .5px solid lighten($header-color, 10%);
+      background-color: black;
+    }
+
+    .elem-pos-top {
+      position: absolute;
+      left: 3px;
+    }
+
+    .elem-pos-bottom {
+      position: absolute;
+      top: 3px;
+    }
+  }
+}

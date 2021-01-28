@@ -1,0 +1,23 @@
+<div class="card" [appSortByDate]="cardData.snippet.publishedAt">
+  <img class="video-thumbnail" src="{{ cardData['snippet']['thumbnails']['medium']['url'] }}" width="220"
+    alt="video-thumbnail">
+  <div class="box-statistic">
+    <div class="item-statistic">
+      <img class="img-stat" src="/assets/viewed.svg" alt="viewed">
+      <span class="value-stat">{{ cardData['statistics']['viewCount'] }}</span>
+      <img class="img-stat" src="/assets/liked.svg" alt="liked">
+      <span class="value-stat">{{ cardData['statistics']['likeCount'] }}</span>
+    </div>
+    <div class="item-statistic">
+      <img class="img-stat" src="/assets/dislike.svg" alt="dislike">
+      <span class="value-stat">{{ cardData['statistics']['dislikeCount'] }}</span>
+      <div class="img-comments">
+        <div class="img-elem elem-pos-top"></div>
+        <div class="img-elem elem-pos-bottom"></div>
+      </div>
+      <span class="value-stat">{{ cardData['statistics']['commentCount'] }}</span>
+    </div>
+  </div>
+  <div class="video-title">{{ cardData['snippet']['title'] }}</div>
+  <div class="btn-more-info" (click)="goToDetailInfo()">more...</div>
+</div>
